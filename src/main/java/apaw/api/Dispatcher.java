@@ -1,11 +1,15 @@
 package apaw.api;
 
 
+import apaw.api.resources.ProfessionalResource;
+import apaw.api.resources.exceptions.RequestInvalidException;
 import apaw.http.HttpRequest;
 import apaw.http.HttpResponse;
 import apaw.http.HttpStatus;
 
 public class Dispatcher {
+	
+	private ProfessionalResource professionalResource = new ProfessionalResource();
 
     private void responseError(HttpResponse response, Exception e) {
         response.setBody("{\"error\":\"" + e + "\"}");
@@ -17,7 +21,17 @@ public class Dispatcher {
     }
 
     public void doPost(HttpRequest request, HttpResponse response) {
-        
+        try {
+        	if(request.isEqualsPath(ProfessionalResource.PROFESSIONALS)) {
+        		System.out.println("Professional request: " + request.getBody());
+        		professionalResource.createProfessional(request.getBody());
+        		response.setStatus(HttpStatus.CREATED);
+        	}else {
+        		throw new RequestInvalidException(request.getPath());
+        	}
+        }catch (Exception e) {
+        	responseError(response, e);
+        }
     }
 
     public void doPut(HttpRequest request, HttpResponse response) {
