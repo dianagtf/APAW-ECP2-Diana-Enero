@@ -17,6 +17,19 @@ public class Dispatcher {
     }
 
     public void doGet(HttpRequest request, HttpResponse response) {
+    	try {
+    		
+    		if(request.isEqualsPath(ProfessionalResource.PROFESSIONALS + ProfessionalResource.PHONE)) {
+    			
+    			response.setBody(professionalResource.readProfessional(Integer.valueOf(request.paths()[1])).toString());
+    			
+    		}else {
+    			throw new RequestInvalidException(request.getPath());
+    		}
+    		
+    	}catch (Exception e) {
+    		responseError(response, e);
+    	}
         
     }
 

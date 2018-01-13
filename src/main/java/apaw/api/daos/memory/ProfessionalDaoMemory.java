@@ -12,17 +12,13 @@ public class ProfessionalDaoMemory extends GenericDaoMemory<Professional> implem
 	}
 	
 	@Override
-	protected int getId(Professional entity) {
+	protected Integer getId(Professional entity) {
 		return entity.getId();
 	}
 
 	@Override
-	protected void setId(Professional entity, int id) {
+	protected void setId(Professional entity, Integer id) {
 		entity.setId(id);		
 	}
-
-	
-	
-	
 
 }
