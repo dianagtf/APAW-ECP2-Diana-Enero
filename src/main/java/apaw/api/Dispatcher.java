@@ -11,6 +11,7 @@ import apaw.http.HttpStatus;
 public class Dispatcher {
 	
 	private ProfessionalResource professionalResource = new ProfessionalResource();
+	private OrderResource orderResource = new OrderResource();
 
     private void responseError(HttpResponse response, Exception e) {
         response.setBody("{\"error\":\"" + e + "\"}");
@@ -42,7 +43,8 @@ public class Dispatcher {
         		response.setStatus(HttpStatus.CREATED);
         	}else if(request.isEqualsPath(OrderResource.ORDERS)) {
         		System.out.println("**Order request: " + request.getBody());
-        		
+        		orderResource.createOrder(request.getBody());
+        		response.setStatus(HttpStatus.CREATED);
         	}else {
         		throw new RequestInvalidException(request.getPath());
         	}
