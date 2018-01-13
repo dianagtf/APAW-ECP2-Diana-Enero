@@ -39,5 +39,13 @@ public class ProfessionalResourceFunctionalTesting {
 	    HttpRequest request = new HttpRequestBuilder().method(HttpMethod.POST).path(ProfessionalResource.PROFESSIONALS).build();
 	    new HttpClientService().httpRequest(request);
 	}
+	
+	@Test
+	public void testReadProfessional() {
+		this.createProfessional();
+		HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(ProfessionalResource.PROFESSIONALS).path(ProfessionalResource.PHONE).expandPath("11111").build();
+		new HttpClientService().httpRequest(request);
+		System.out.println("testReadProfessional: " + request);
+	}
 
 }
