@@ -8,7 +8,7 @@ public abstract class GenericDaoMemory<T> implements GenericDao<T, Integer> {
 	
 	private Map<Integer, T> map;
 	
-	private int id;
+	private Integer id;
 	
 	public GenericDaoMemory() {
 		id = 0;
@@ -25,8 +25,13 @@ public abstract class GenericDaoMemory<T> implements GenericDao<T, Integer> {
 		id++;
 	}
 	
-	protected abstract int getId(T entity);
+	@Override
+	public T read(Integer id) {
+		return map.get(id);
+	}
 	
-	protected abstract void setId(T entity, int id);
+	protected abstract Integer getId(T entity);
+	
+	protected abstract void setId(T entity, Integer id);
 
 }

@@ -1,5 +1,7 @@
 package apaw.api.dtos;
 
+import apaw.api.entities.Professional;
+
 public class ProfessionalDto {
 	
 	private int phone;
@@ -12,6 +14,12 @@ public class ProfessionalDto {
 	
 	public ProfessionalDto(int phone) {
 		this.phone = phone;
+	}
+	
+	public ProfessionalDto(Professional professional) {
+		this.phone = professional.getPhone();
+		this.city = professional.getCity();
+		this.type = professional.getType();
 	}
 	
 	public int getPhone() {

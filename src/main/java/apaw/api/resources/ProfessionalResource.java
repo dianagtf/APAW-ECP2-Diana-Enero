@@ -1,7 +1,11 @@
 package apaw.api.resources;
 
+import java.util.Optional;
+
 import apaw.api.controllers.ProfessionalController;
+import apaw.api.dtos.ProfessionalDto;
 import apaw.api.resources.exceptions.ProfessionalFieldInvalidException;
+import apaw.api.resources.exceptions.ProfessionalPhoneNotFoundException;
 
 public class ProfessionalResource {
 	
@@ -20,6 +24,15 @@ public class ProfessionalResource {
 		if(field == null || field.isEmpty()) {
 			throw new ProfessionalFieldInvalidException(field);
 		}
+	}
+	
+	public ProfessionalDto readProfessional(int professionalPhone) throws ProfessionalPhoneNotFoundException{
+		/**
+		 * Optional: me puede devolver algo, o no (null)
+		 */
+		Optional <ProfessionalDto> optional = new ProfessionalController().readProfessional(professionalPhone);
+		
+		return optional.orElseThrow(() -> new ProfessionalPhoneNotFoundException(Integer.toString(professionalPhone)));
 	}
 
 }

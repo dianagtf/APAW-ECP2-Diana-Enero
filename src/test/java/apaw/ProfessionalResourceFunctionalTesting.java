@@ -42,10 +42,14 @@ public class ProfessionalResourceFunctionalTesting {
 	
 	@Test
 	public void testReadProfessional() {
-		this.createProfessional();
-		HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(ProfessionalResource.PROFESSIONALS).path(ProfessionalResource.PHONE).expandPath("11111").build();
+		this.createProfessional(); //id = 0
+		this.createProfessional(); //id = 1
+		
+		HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(ProfessionalResource.PROFESSIONALS).path(ProfessionalResource.PHONE).expandPath("0").build();
 		new HttpClientService().httpRequest(request);
-		System.out.println("testReadProfessional: " + request);
+		
+		HttpRequest request1 = new HttpRequestBuilder().method(HttpMethod.GET).path(ProfessionalResource.PROFESSIONALS).path(ProfessionalResource.PHONE).expandPath("1").build();
+		new HttpClientService().httpRequest(request1);
 	}
 
 }
