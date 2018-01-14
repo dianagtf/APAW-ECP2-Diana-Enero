@@ -2,8 +2,6 @@ package apaw.api.controllers;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Calendar;
-
 import org.junit.Before;
 import org.junit.Test;
 
