@@ -16,6 +16,8 @@ public class LevelControllerIT {
 		levelController = new LevelController();
 		levelController.createLevel("NORMAL");
 		
+		System.out.println(levelController.readLevel(0));
+		
 	}
 
 }

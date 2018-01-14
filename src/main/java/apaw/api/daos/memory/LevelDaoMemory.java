@@ -21,16 +21,4 @@ public class LevelDaoMemory extends GenericDaoMemory<Level> implements LevelDao 
 		entity.setId(id);
 	}
 
-	@Override
-	public void create(Level entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Level read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

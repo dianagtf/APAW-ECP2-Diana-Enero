@@ -4,14 +4,19 @@ public class Level {
 	
 	private int id;
 	
-	private String level;
+	private String levelName;
 	
 	public Level() {
 		
 	}
 	
-	public Level(String level) {
-		this.level = level;
+	public Level(String levelName) {
+		this.levelName = levelName;
+	}
+	
+	public Level(int id, String levelName) {
+		this.id = id;
+		this.levelName = levelName;
 	}
 
 	public int getId() {
@@ -23,16 +28,17 @@ public class Level {
 	}
 
 	public String getLevel() {
-		return level;
+		return levelName;
 	}
 
-	public void setLevel(String level) {
-		this.level = level;
+	public void setLevel(String levelName) {
+		this.levelName = levelName;
 	}
 	
 	@Override
 	public String toString() {
-		return "Level [id =" + id + ", level = " + level+ "]";
+		//return "Level [id =" + id + ", level = " + level+ "]";
+		return "{\"id\":" + id + ",\"levelName\":\"" + levelName + "\"}";
 	}
 
 }
