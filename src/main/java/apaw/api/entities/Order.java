@@ -12,8 +12,13 @@ public class Order {
 		
 	}
 	
-	public Order(int id) {
+	public Order(int amount) {
+		this.amount = amount;
+	}
+	
+	public Order(int id, int amount) {
 		this.id = id;
+		this.amount = amount;
 	}
 	
 	public int getId() {

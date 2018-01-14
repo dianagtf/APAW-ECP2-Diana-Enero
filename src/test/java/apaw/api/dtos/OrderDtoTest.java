@@ -15,7 +15,7 @@ public class OrderDtoTest {
 	Calendar calendar;
 	
 	@Before
-	public void professionalSet() {
+	public void orderSet() {
 		order = new OrderDto();
 
 		calendar = Calendar.getInstance();
