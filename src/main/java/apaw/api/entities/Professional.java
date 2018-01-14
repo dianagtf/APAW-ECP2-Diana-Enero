@@ -46,5 +46,10 @@ public class Professional {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	@Override
+	public String toString() {
+		return "{\"phone\":" + phone + ",\"city\":\"" + city + ",\"type\":\"" + type + "\"}";
+	}
 
 }
