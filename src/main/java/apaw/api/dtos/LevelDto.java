@@ -11,9 +11,18 @@ public class LevelDto {
 		
 	}
 	
+	public LevelDto(int id) {
+		this.id = id;
+	}
+	
 	public LevelDto(Level level) {
 		this.id = level.getId();
 		this.levelName = level.getLevel();
+	}
+	
+	public LevelDto(int id, String levelName) {
+		this.id = id;
+		this.levelName = levelName;
 	}
 
 	public int getId() {

@@ -13,6 +13,7 @@ public class Dispatcher {
 	
 	private ProfessionalResource professionalResource = new ProfessionalResource();
 	private OrderResource orderResource = new OrderResource();
+	private LevelResource levelResource = new LevelResource();
 
     private void responseError(HttpResponse response, Exception e) {
         response.setBody("{\"error\":\"" + e + "\"}");
@@ -29,7 +30,8 @@ public class Dispatcher {
     		}else if(request.isEqualsPath(OrderResource.ORDERS + OrderResource.ID)) {
     			
     			response.setBody(orderResource.readOrder(Integer.valueOf(request.paths()[1])).toString());
-    			
+    		}else if(request.isEqualsPath(LevelResource.LEVELS + LevelResource.ID)) {	
+    			response.setBody(levelResource.readLevel(Integer.valueOf(request.paths()[1])).toString());
     		}else {
     			throw new RequestInvalidException(request.getPath());
     		}
@@ -51,7 +53,9 @@ public class Dispatcher {
         		orderResource.createOrder(request.getBody());
         		response.setStatus(HttpStatus.CREATED);
         	}else if(request.isEqualsPath(LevelResource.LEVELS)) {
-        		
+        		System.out.println("**Level request: " + request.getBody());
+        		levelResource.createLevel(request.getBody());
+        		response.setStatus(HttpStatus.CREATED);
         	}else {
         		throw new RequestInvalidException(request.getPath());
         	}
