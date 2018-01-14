@@ -32,6 +32,7 @@ public class OrderControllerIT {
 	@Test
 	public void testReadOrder() {
 		assertEquals(1024, orderController.readOrder(0).get().getAmount());
+		assertEquals(0, orderController.readOrder(0).get().getId());
 	}
 
 }
