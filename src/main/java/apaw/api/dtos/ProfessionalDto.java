@@ -16,6 +16,12 @@ public class ProfessionalDto {
 		this.phone = phone;
 	}
 	
+	public ProfessionalDto(int phone, int city, String type) {
+		this.phone = phone;
+		this.city = city;
+		this.type = type;
+	}
+	
 	public ProfessionalDto(Professional professional) {
 		this.phone = professional.getPhone();
 		this.city = professional.getCity();
@@ -44,6 +50,11 @@ public class ProfessionalDto {
 	
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	@Override
+	public String toString() {
+		return "{\"phone\":" + phone + ",\"city\":\"" + city + ",\"type\":\"" + type + "\"}";
 	}
 
 }
