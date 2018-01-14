@@ -7,6 +7,8 @@ public class LevelResource {
 	
 	public static final String LEVELS = "levels";
 	
+	public static final String ID = "/{id}";
+	
 	private void validateField(String field) throws LevelFieldInvalidException{
 		if(field == null || field.isEmpty()) {
 			throw new LevelFieldInvalidException(field);
