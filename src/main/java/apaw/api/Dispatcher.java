@@ -27,7 +27,7 @@ public class Dispatcher {
     		
     		}else if(request.isEqualsPath(OrderResource.ORDERS + OrderResource.ID)) {
     			
-    			
+    			response.setBody(orderResource.readOrder(Integer.valueOf(request.paths()[1])).toString());
     			
     		}else {
     			throw new RequestInvalidException(request.getPath());

@@ -33,7 +33,7 @@ public class OrderResourceFunctionalTesting {
 		this.createOrder();
 		HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(OrderResource.ORDERS).path(OrderResource.ID).expandPath("0").build();
 		new HttpClientService().httpRequest(request);
-		
+		System.out.println("** testReadOrder: " + request);
 	}
 
 }
