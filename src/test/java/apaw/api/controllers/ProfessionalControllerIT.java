@@ -27,6 +27,8 @@ public class ProfessionalControllerIT {
 		
 		professionalController = new ProfessionalController();
 		professionalController.createProfessional(11111);
+		
+		System.out.println(professionalController.readProfessional(0));
 	}
 
 	@Test

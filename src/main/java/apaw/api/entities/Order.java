@@ -12,8 +12,13 @@ public class Order {
 		
 	}
 	
-	public Order(int id) {
+	public Order(int amount) {
+		this.amount = amount;
+	}
+	
+	public Order(int id, int amount) {
 		this.id = id;
+		this.amount = amount;
 	}
 	
 	public int getId() {
@@ -37,6 +42,11 @@ public class Order {
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	
+	@Override
+	public String toString() {
+		return "{\"id\":" + id + ",\"date\":\"" + date + ",\"amount\":\"" + amount + "\"}";
 	}
 
 }

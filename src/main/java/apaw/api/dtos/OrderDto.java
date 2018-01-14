@@ -2,6 +2,8 @@ package apaw.api.dtos;
 
 import java.util.Calendar;
 
+import apaw.api.entities.Order;
+
 public class OrderDto {
 	
 	private int id;
@@ -14,6 +16,12 @@ public class OrderDto {
 	
 	public OrderDto(int id) {
 		this.id = id;
+	}
+	
+	public OrderDto(Order order) {
+		this.id = order.getId();
+		this.date = order.getDate();
+		this.amount = order.getAmount();
 	}
 	
 	public OrderDto(int id, Calendar date, int amount) {
@@ -41,5 +49,8 @@ public class OrderDto {
 		this.amount = amount;
 	}
 	
-
+	@Override
+	public String toString() {
+		return "{\"id\":" + id + ",\"date\":\"" + date + ",\"amount\":\"" + amount + "\"}";
+	}
 }

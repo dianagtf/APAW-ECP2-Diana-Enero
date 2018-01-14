@@ -24,6 +24,10 @@ public class Dispatcher {
     		if(request.isEqualsPath(ProfessionalResource.PROFESSIONALS + ProfessionalResource.PHONE)) {
     			
     			response.setBody(professionalResource.readProfessional(Integer.valueOf(request.paths()[1])).toString());
+    		
+    		}else if(request.isEqualsPath(OrderResource.ORDERS + OrderResource.ID)) {
+    			
+    			response.setBody(orderResource.readOrder(Integer.valueOf(request.paths()[1])).toString());
     			
     		}else {
     			throw new RequestInvalidException(request.getPath());
