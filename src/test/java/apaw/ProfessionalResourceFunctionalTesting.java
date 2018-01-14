@@ -35,7 +35,7 @@ public class ProfessionalResourceFunctionalTesting {
 	}
 
 	@Test(expected = HttpException.class)
-	public void testCreateWithoutProfessionalCity() {
+	public void testCreateWithoutProfessionalPhone() {
 	    HttpRequest request = new HttpRequestBuilder().method(HttpMethod.POST).path(ProfessionalResource.PROFESSIONALS).build();
 	    new HttpClientService().httpRequest(request);
 	}

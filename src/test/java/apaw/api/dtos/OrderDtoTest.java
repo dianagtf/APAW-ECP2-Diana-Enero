@@ -11,8 +11,8 @@ import apaw.api.dtos.OrderDto;
 
 public class OrderDtoTest {
 	
-	OrderDto order;
-	Calendar calendar;
+	private OrderDto order;
+	private Calendar calendar;
 	
 	@Before
 	public void orderSet() {

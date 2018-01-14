@@ -15,16 +15,14 @@ public class ProfessionalResource {
 	
 	public static final String PHONE_CITY = PHONE + "/city";
 	
+	
+	
 	public void createProfessional(String professionalId) throws ProfessionalFieldInvalidException{
-		this.validateField(professionalId);
+		ResourceCommon.validateField(professionalId);
 		new ProfessionalController().createProfessional(Integer.parseInt(professionalId));
 	}
 	
-	private void validateField(String field) throws ProfessionalFieldInvalidException{
-		if(field == null || field.isEmpty()) {
-			throw new ProfessionalFieldInvalidException(field);
-		}
-	}
+	
 	
 	public ProfessionalDto readProfessional(int professionalPhone) throws ProfessionalPhoneNotFoundException{
 		/**

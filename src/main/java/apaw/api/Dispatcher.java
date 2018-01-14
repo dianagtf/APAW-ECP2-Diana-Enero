@@ -1,6 +1,7 @@
 package apaw.api;
 
 
+import apaw.api.resources.LevelResource;
 import apaw.api.resources.OrderResource;
 import apaw.api.resources.ProfessionalResource;
 import apaw.api.resources.exceptions.RequestInvalidException;
@@ -49,6 +50,8 @@ public class Dispatcher {
         		System.out.println("**Order request: " + request.getBody());
         		orderResource.createOrder(request.getBody());
         		response.setStatus(HttpStatus.CREATED);
+        	}else if(request.isEqualsPath(LevelResource.LEVELS)) {
+        		
         	}else {
         		throw new RequestInvalidException(request.getPath());
         	}
