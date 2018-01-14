@@ -24,8 +24,15 @@ public class OrderResourceFunctionalTesting {
 	}
 	
 	@Test
-	public void testCreateProfessional() {
+	public void testCreateOrder() {
 		this.createOrder();
+	}
+	
+	@Test
+	public void testReadOrder() {
+		this.createOrder();
+		HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(OrderResource.ID).path(OrderResource.ID).expandPath("0").build();
+		new HttpClientService().httpRequest(request);
 	}
 
 }
