@@ -32,5 +32,11 @@ public class ProfessionalResource {
 		
 		return optional.orElseThrow(() -> new ProfessionalPhoneNotFoundException(Integer.toString(professionalPhone)));
 	}
+	
+	public void createProfessionalWithOrder(String professionalId, String orderId) throws ProfessionalFieldInvalidException{
+		ResourceCommon.validateField(professionalId);
+		ResourceCommon.validateField(orderId);
+		new ProfessionalController().createProfessional(Integer.parseInt(professionalId));
+	}
 
 }

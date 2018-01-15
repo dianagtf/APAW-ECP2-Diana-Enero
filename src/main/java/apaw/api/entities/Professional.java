@@ -7,12 +7,19 @@ public class Professional {
 	private int city;
 	private String type;
 	
+	private Order order;
+	
 	public Professional() {
 		
 	}
 	
 	public Professional(int phone) {
 		this.phone = phone;
+	}
+	
+	public Professional(int id, Order order) {
+		this.id = id;
+		this.setOrder(order);
 	}
 	
 	public int getId() {
@@ -50,6 +57,14 @@ public class Professional {
 	@Override
 	public String toString() {
 		return "{\"phone\":" + phone + ",\"city\":\"" + city + ",\"type\":\"" + type + "\"}";
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 }

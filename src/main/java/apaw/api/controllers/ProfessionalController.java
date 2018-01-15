@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import apaw.api.daos.DaoFactory;
 import apaw.api.dtos.ProfessionalDto;
+import apaw.api.entities.Order;
 import apaw.api.entities.Professional;
 
 public class ProfessionalController {
@@ -23,4 +24,17 @@ public class ProfessionalController {
 			return Optional.empty();
 		}
 	}
+	
+	public boolean createProfessionalWithOrder(int professionalPhone, int orderId) {
+		Professional professional = DaoFactory.getFactory().getProfessionalDao().read(professionalPhone);
+		
+		if (professional != null) {
+			DaoFactory.getFactory().getOrderDao().create(new Order(orderId));
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 }

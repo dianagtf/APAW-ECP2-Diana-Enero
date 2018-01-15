@@ -34,6 +34,7 @@ public class ProfessionalControllerIT {
 	@Test
 	public void testReadProfessional() {
 		assertEquals(902111111, professionalController.readProfessional(0).get().getPhone());
+		
 	}
 }
 

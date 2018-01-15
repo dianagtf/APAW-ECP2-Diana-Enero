@@ -48,6 +48,11 @@ public class Dispatcher {
         		System.out.println("**Professional request: " + request.getBody());
         		professionalResource.createProfessional(request.getBody());
         		response.setStatus(HttpStatus.CREATED);
+        	}else if(request.isEqualsPath(ProfessionalResource.PROFESSIONALS + ProfessionalResource.PHONE)) {
+        		System.out.println("**Professional request: " + request.getBody());
+        		professionalResource.createProfessional(request.getBody());
+        		response.setStatus(HttpStatus.CREATED);
+        		
         	}else if(request.isEqualsPath(OrderResource.ORDERS)) {
         		System.out.println("**Order request: " + request.getBody());
         		orderResource.createOrder(request.getBody());
@@ -69,6 +74,16 @@ public class Dispatcher {
     }
 
     public void doPatch(HttpRequest request, HttpResponse response) {
+    	try {
+	       if(request.isEqualsPath(ProfessionalResource.PROFESSIONALS + ProfessionalResource.PHONE )) {
+	    	   System.out.println("**" + ProfessionalResource.PROFESSIONALS + ProfessionalResource.PHONE);
+	    	   professionalResource.createProfessionalWithOrder((Integer.valueOf(request.paths()[1])).toString(), request.getBody());
+	       }else {
+	    	   throw new RequestInvalidException(request.getPath());
+	       }
+    	}catch (Exception e) {
+    	   responseError(response, e);
+       }
        
     }
 

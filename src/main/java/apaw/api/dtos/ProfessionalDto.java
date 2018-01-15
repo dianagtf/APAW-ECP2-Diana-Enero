@@ -8,6 +8,8 @@ public class ProfessionalDto {
 	private int city;
 	private String type;
 	
+	private int orderId;
+	
 	public ProfessionalDto() {
 		
 	}
@@ -26,6 +28,7 @@ public class ProfessionalDto {
 		this.phone = professional.getPhone();
 		this.city = professional.getCity();
 		this.type = professional.getType();
+		//this.orderId = professional.getOrder().getId();
 	}
 	
 	public int getPhone() {
@@ -55,6 +58,14 @@ public class ProfessionalDto {
 	@Override
 	public String toString() {
 		return "{\"phone\":" + phone + ",\"city\":\"" + city + ",\"type\":\"" + type + "\"}";
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
 
 }
